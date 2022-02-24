@@ -33,11 +33,10 @@
 
 <!-------------------------------------------------------------------------------------------------------------------------------------------------------------->
 
-
-<div class="w3-content" style="max-width:1200px">
+<div class="w3-content" style="max-width:1400px">
     @RenderTemplate("ArticleImages.cshtml", appTheme, Model, true)
     @{
-        Model.SetSetting("imageresize", "1200");
+        Model.SetSetting("imageresize", remoteModule.Record.GetXmlProperty("genxml/settings/imgresize"));
     }
     @RenderTemplate("ArticleImageSelect.cshtml", appThemeSystem, Model, true)
 </div>
