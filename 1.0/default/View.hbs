@@ -6,31 +6,32 @@
 
     {{#each imagelist.genxml}}
 
-    <h1>==> {{articlerow @root "name"}}</h1>
-
     {{#if @first}}
-    <div id="sliderind{{@root.genxml.sessionparams.r.moduleref}}-{{@index}}" onclick="changebanner{{@root.genxml.sessionparams.r.moduleref}}({{@index}});" class="w3-row">
-        <img class="sliderind{{@root.genxml.sessionparams.r.moduleref}}" src="{{thumbnailimageurl @root.genxml.sessionparams.r.engineurl hidden.imagepatharticleimage 640 200  }}" style="width: 100%;">
-        <div class="{{select.displaypos}}">{{lookuplang @root "rows.genxml[0].imagelist." "textbox.imagealt" @index}}</div>
+    <div id="sliderind{{moduleref @root}}-{{@index}}" onclick="changebanner{{moduleref @root}}({{@index}});" class="w3-row">
+        <img class="sliderind{{moduleref @root}}" src="{{image @root "thumburl" @../index @index 640 200}}" style="width: 100%;">
+        <div class="{{select.displayposarticleimage}}">{{image @root "alt" @../index @index}}</div>
     </div>
     {{else}}
-    <div id="sliderind{{@root.genxml.sessionparams.r.moduleref}}-{{@index}}" onclick="changebanner{{@root.genxml.sessionparams.r.moduleref}}({{@index}});" class="w3-row" style="display:none;">
-        <img class="sliderind{{@root.genxml.sessionparams.r.moduleref}}" src="{{thumbnailimageurl @root.genxml.sessionparams.r.engineurl hidden.imagepatharticleimage 640 200  }}" style="width: 100%;">
-        <div class="{{select.displaypos}}">{{lookuplang @root "rows.genxml[0].imagelist." "textbox.imagealt" @index}}</div>
+    <div id="sliderind{{moduleref @root}}-{{@index}}" onclick="changebanner{{moduleref @root}}({{@index}});" class="w3-row" style="display:none;">
+        <img class="sliderind{{moduleref @root}}" src="{{image @root "thumburl" @../index @index 640 200}}" style="width: 100%;">
+        <div class="{{select.displayposarticleimage}}">{{image @root "alt" @../index @index}}</div>
     </div>
     {{/if}}
     {{/each}}
     {{/each}}
 </div>
 
-
 <script>
 
-    function changebanner{{@root.genxml.sessionparams.r.moduleref}}(idx)
+    function changebanner{{moduleref @root}}(idx)
     {
         var nextidx = idx + 1;
-        $('#sliderind{{@root.genxml.sessionparams.r.moduleref}}-' + idx).hide();
-        $('#sliderind{{@root.genxml.sessionparams.r.moduleref}}-' + nextidx).show();
+        if (nextidx == {{image @root "count"}}) {
+            nextidx = 0
+        }
+        $('#sliderind{{moduleref @root}}-' + idx).hide();
+        $('#sliderind{{moduleref @root}}-' + nextidx).show();
+
     }
 
 </script>
