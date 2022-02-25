@@ -120,6 +120,9 @@
   <data name="heading.Text" xml:space="preserve">
     <value>Heading</value>
   </data>
+  <data name="hidden.Text" xml:space="preserve">
+    <value>Hidden</value>
+  </data>
   <data name="linktext.Text" xml:space="preserve">
     <value>Link Text</value>
   </data>

@@ -23,6 +23,7 @@
         hbsDict.Add("data", o.Info);
     }
     hbsDict.Add("sessionparams", sessionParams.Info);
+    hbsDict.Add("remotemodule", new SimplisityInfo(remoteModule.Record));
 }
 
 @RenderHandleBarsRC(hbsDict, appTheme, "view.hbs", remoteModule.ModuleRef)

@@ -56,14 +56,10 @@
                             }
                         </div>
                         <div class="w3-col m10">
-                            <div class="w3-col m9 w3-padding">
+                            <div class="w3-col m12 w3-padding">
                                 <label>@ResourceKey("Theme.heading")&nbsp;@EditFlag(sessionParams)</label>
                                 @TextBox(imgInfo, "genxml/lang/genxml/textbox/imagealt" + articleImage.FieldId, "class='w3-input w3-border' MaxLength='200'", "", true, imgLP)
                                 @HiddenField(imgInfo, "genxml/hidden/imagepath" + articleImage.FieldId, "", "", false, imgLP)
-                            </div>
-                            <div class="w3-col m3 w3-padding">
-                                <label>@ResourceKey("Theme.position")</label>
-                                @DropDownList(imgInfo, "genxml/select/displaypos" + articleImage.FieldId, "w3-display-topleft,w3-display-topright,w3-display-bottomleft,w3-display-bottomright,w3-display-left,w3-display-right,w3-display-middle", "topleft,topright,bottomleft,bottomright,left,right,middle", " class='w3-input w3-border ' ", "w3-display-middle", false, imgLP)
                             </div>
                             <div class="w3-col m12 w3-padding">
                                 <label>@ResourceKey("Theme.summary")&nbsp;@EditFlag(sessionParams)</label>
@@ -76,6 +72,9 @@
                             <div class="w3-col m12 w3-padding">
                                 <label>@ResourceKey("Theme.url")&nbsp;@EditFlag(sessionParams)</label>
                                 @TextBox(imgInfo, "genxml/lang/genxml/textbox/url" + articleImage.FieldId, "class='w3-input w3-border' MaxLength='1200'", "", true, imgLP)
+                            </div>
+                            <div class="w3-col m12 w3-padding">
+                                @CheckBox(imgInfo, "genxml/checkbox/imagehidden" + articleImage.FieldId, "&nbsp;" + ResourceKey("Theme.hidden").ToString(), " class='w3-check' ")
                             </div>
                             <span id="deletebutton@(imgLP)" onclick="" class="w3-button w3-display-topright simplisity_removelistitem" s-removelist=".imagelist" s-recylebin="imagelistbin">
                                 @ButtonIcon(ButtonTypes.remove)
