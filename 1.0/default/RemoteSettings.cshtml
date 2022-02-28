@@ -1,9 +1,7 @@
-﻿@inherits RocketContent.Components.RocketContentTokens<Simplisity.SimplisityRazor>
-@using DNNrocketAPI;
-@using Simplisity;
-@using RocketContent.Components;
+﻿@inherits RocketCatalog.Components.RocketCatalogTokens<Simplisity.SimplisityRazor>
+@using RocketCatalog.Components;
 @using DNNrocketAPI.Components;
-@using RocketPortal.Components;
+@using Simplisity;
 
 @{
     var appTheme = (AppThemeLimpet)Model.GetDataObject("apptheme");
@@ -16,7 +14,7 @@
 
 <div class="w3-third w3-padding">
     <label>@ResourceKey("DNNrocket.imageresize") (px)</label>
-    @TextBox(info, "genxml/settings/imageresize", " class='w3-input w3-border'", "1400")
+    @TextBox(info, "genxml/settings/imgresize", " class='w3-input w3-border'", "1400")
 </div>
 <div class="w3-third w3-padding">
     <label>@ResourceKey("DNNrocket.height") (px)</label>

@@ -5,6 +5,9 @@
 @using DNNrocketAPI.Components;
 @using RocketPortal.Components;
 
+@AddProcessData("resourcepath", "/DesktopModules/DNNrocket/api/App_LocalResources/")
+@AddProcessData("resourcepath", "/DesktopModules/DNNrocketModules/RocketContent/App_LocalResources/")
+
 @{
     var info = new SimplisityInfo();
     var appThemeSystem = new AppThemeSystemLimpet("rocketcontent");
@@ -22,9 +25,7 @@
 
 }
 
-@AddProcessData("resourcepath", "/DesktopModules/DNNrocket/api/App_LocalResources/")
-@AddProcessData("resourcepath", "/DesktopModules/DNNrocketModules/RocketContent/App_LocalResources/")
-@AddProcessData("resourcepath", appTheme.AppThemeVersionFolderRel + "/resx/")
+@AddProcessData("resourcepath", "/DesktopModules/RocketThemes/" + articleData.Organisation + "/" + articleData.AdminAppThemeFolder + "/" + articleData.AdminAppThemeFolderVersion + "/resx/")
 
 <!-- require Key for saving -->
 @HiddenField(info, "genxml/config/rowkey")
@@ -32,10 +33,11 @@
 
 <!-------------------------------------------------------------------------------------------------------------------------------------------------------------->
 
-<div class="w3-content" style="max-width:1400px">
+
+<div class="w3-content" style="max-width:1200px">
     @RenderTemplate("ArticleImages.cshtml", appTheme, Model, true)
     @{
-        Model.SetSetting("imageresize", remoteModule.Record.GetXmlProperty("genxml/settings/imgresize"));
+        Model.SetSetting("imageresize", "1200");
     }
     @RenderTemplate("ArticleImageSelect.cshtml", appThemeSystem, Model, true)
 </div>

@@ -20,7 +20,7 @@
 @AddProcessData("resourcepath", "/DesktopModules/DNNrocket/api/App_LocalResources/")
 @AddProcessData("resourcepath", "/DesktopModules/DNNrocket/Images/App_LocalResources/")
 @AddProcessData("resourcepath", "/DesktopModules/DNNrocketModules/RocketContent/App_LocalResources/")
-@AddProcessData("resourcepath", appTheme.AppThemeVersionFolderRel + "/resx/")
+@AddProcessData("resourcepath", "/DesktopModules/RocketThemes/" + articleData.Organisation + "/" + articleData.AdminAppThemeFolder + "/" + articleData.AdminAppThemeFolderVersion + "/resx/")
 
 <div class="w3-row imagelistdatasection">
 
@@ -56,7 +56,7 @@
                             }
                         </div>
                         <div class="w3-col m10">
-                            <div class="w3-col m12 w3-padding">
+                            <div class="w3-col m9 w3-padding">
                                 <label>@ResourceKey("Theme.heading")&nbsp;@EditFlag(sessionParams)</label>
                                 @TextBox(imgInfo, "genxml/lang/genxml/textbox/imagealt" + articleImage.FieldId, "class='w3-input w3-border' MaxLength='200'", "", true, imgLP)
                                 @HiddenField(imgInfo, "genxml/hidden/imagepath" + articleImage.FieldId, "", "", false, imgLP)
@@ -72,9 +72,6 @@
                             <div class="w3-col m12 w3-padding">
                                 <label>@ResourceKey("Theme.url")&nbsp;@EditFlag(sessionParams)</label>
                                 @TextBox(imgInfo, "genxml/lang/genxml/textbox/url" + articleImage.FieldId, "class='w3-input w3-border' MaxLength='1200'", "", true, imgLP)
-                            </div>
-                            <div class="w3-col m12 w3-padding">
-                                @CheckBox(imgInfo, "genxml/checkbox/imagehidden" + articleImage.FieldId, "&nbsp;" + ResourceKey("Theme.hidden").ToString(), " class='w3-check' ")
                             </div>
                             <span id="deletebutton@(imgLP)" onclick="" class="w3-button w3-display-topright simplisity_removelistitem" s-removelist=".imagelist" s-recylebin="imagelistbin">
                                 @ButtonIcon(ButtonTypes.remove)
